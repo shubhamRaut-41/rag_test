@@ -21,6 +21,7 @@ To set up the project, clone the repository and install the required dependencie
 ```bash
 git clone https://github.com/shubhamRaut-41/rag_test.git
 cd rag_test
+python 3.10
 pip install -r requirements.txt
 ```
 ## create .env file also for the values
