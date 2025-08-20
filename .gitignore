@@ -1,0 +1,64 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+*.manifest
+*.spec
+
+# Virtual environment
+venv/
+.env
+.env.local
+.env.*.local
+
+# Logs & caches
+*.log
+*.pot
+*.pyc
+*.pkl
+*.db
+*.sqlite3
+.DS_Store
+.cache/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+
+# Jupyter / IPython
+.ipynb_checkpoints
+*.ipynb
+
+# FastAPI / Uvicorn
+*.pid
+
+# Vector DB / Chroma / FAISS
+chroma_db/
+faiss_index/
+db/
+
+# Docker
+*.pid
+*.tar
+*.log
+docker-compose.override.yml
+.docker/
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+*.whl
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+EOL
