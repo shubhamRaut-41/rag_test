@@ -1,28 +1,28 @@
-version: "3.8"
+
+version: "3.10"
 services:
-  chroma:
-    image: chromadb/chroma
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chroma_db
     ports:
-      - "8001:8000"
+    - "8080:8080"
     environment:
-      - IS_PERSISTENT=TRUE
+    - ALLOW_RESET=true
     volumes:
-      - chroma_data:/chroma/.chroma/index
+    - ./chroma_data:/chroma/.chromadb
 
-  rag-app:
-    build: ./src
+
+  rag_app:
+    build: .
+    container_name: rag_app
+    env_file: .env
+    ports:
+    - "8000:8000"
     depends_on:
-      - chroma
+    - chromadb
     environment:
-      - HF_TOKEN=${HF_TOKEN}
-      - PERSIST_DIRECTORY=/app/chroma_db
-      - EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
-      - LLM_MODEL=google/flan-t5-base
-      - CHROMA_HOST=http://chroma:8000
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./src:/app
-
-volumes:
-  chroma_data:
+    - HF_TOKEN=${HF_TOKEN}
+    - CHROMA_HOST=${CHROMA_HOST}
+    - ENABLE_GENERATION=true
+    # volumes:
+    # - ./app:/app 
